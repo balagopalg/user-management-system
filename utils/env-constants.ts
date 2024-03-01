@@ -1,7 +1,7 @@
 export const DATABASE_CREDENTIALS = {
-  HOST: process.env.DATABASE_HOST || 'localhost',
-  PASSWORD: process.env.DATABASE_PASSWORD || 'insert_password',
-  USERNAME: process.env.DATABASE_USERNAME || 'root',
-  NAME: process.env.DATABASE_NAME || 'user-management-system',
+  HOST: process.env.DATABASE_HOST || '',
+  PASSWORD: process.env.DATABASE_PASSWORD || '',
+  USERNAME: process.env.DATABASE_USERNAME || '',
+  NAME: process.env.DATABASE_NAME || '',
   PORT: process.env.DATABASE_PORT || 3306,
 };
