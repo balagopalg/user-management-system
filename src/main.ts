@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { logger } from 'utils/winston';
-import { AppModule } from './modules/app.module';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   logger.info('Starting the server');

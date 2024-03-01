@@ -3,7 +3,7 @@ import { Column, Entity, Index } from 'typeorm';
 /**
  * Created on: 26-01-2024.
  * Last Updated: 26-01-2024.
- * Description: Modules or departments
+ * Description: Projects or departments
  */
 
 @Entity('projects', { schema: 'user-management-system' })

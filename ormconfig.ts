@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { DATABASE_CREDENTIALS } from './utils/envConstants';
+import { DATABASE_CREDENTIALS } from './utils/env-constants';
 import 'dotenv/config';
 
 export const dataSource: DataSource = new DataSource({

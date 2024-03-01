@@ -7,7 +7,6 @@ export const logger = winston.createLogger({
     }),
   ],
   level: 'info',
-  format: winston.format.json(),
   silent: false,
   exitOnError: false,
 });

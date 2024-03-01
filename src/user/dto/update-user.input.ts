@@ -6,3 +6,9 @@ export class UpdateUserInput extends PartialType(CreateUserInput) {
   @Field(() => Int)
   id: number;
 }
+
+@InputType()
+export class GetUserInput {
+  @Field(() => Int)
+  id: number;
+}

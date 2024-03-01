@@ -1,26 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProjectInput } from './dto/create-project.input';
-import { UpdateProjectInput } from './dto/update-project.input';
+import { initialiseDbConnections } from 'utils/typeorm/typeorm-handler';
+import { fetchQueryResults } from 'utils/typeorm/typeorm-helpers';
 
 @Injectable()
 export class ProjectService {
-  create(createProjectInput: CreateProjectInput) {
+  async create(createProjectInput: any) {
+    await initialiseDbConnections();
     return 'This action adds a new project';
   }
 
-  findAll() {
-    return `This action returns all project`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} project`;
-  }
-
-  update(id: number, updateProjectInput: UpdateProjectInput) {
-    return `This action updates a #${id} project`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} project`;
+  async projectDashboard(): Promise<IProjectDashboardResponse[]> {
+    await initialiseDbConnections();
+    const projects = await fetchQueryResults('projects', [], 'is_active', '1');
+    return projects;
   }
 }

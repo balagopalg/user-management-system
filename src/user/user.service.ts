@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserInput } from './dto/create-user.input';
-import { UpdateUserInput } from './dto/update-user.input';
+import { fetchQueryResults } from 'utils/typeorm/typeorm-helpers';
+import { initialiseDbConnections } from 'utils/typeorm/typeorm-handler';
 
 @Injectable()
 export class UserService {
@@ -8,16 +9,19 @@ export class UserService {
     return 'This action adds a new user';
   }
 
-  findAll() {
-    return `This action returns all user`;
+  async getAllUser() {
+    await initialiseDbConnections();
+    const users = await fetchQueryResults('users', [], '', '');
+    return users;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
-
-  update(id: number, updateUserInput: UpdateUserInput) {
-    return `This action updates a #${id} user`;
+  async getUser(getUserInput) {
+    await initialiseDbConnections();
+    const { id } = getUserInput;
+    if (!id || isNaN(Number(id))) return 'Invalid User id provided';
+    const users = await fetchQueryResults('users', ['name'], 'id', id);
+    if (!users || !users.length) return 'user not found';
+    return users;
   }
 
   remove(id: number) {
