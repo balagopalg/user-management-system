@@ -11,3 +11,9 @@ export class User {
   @Field()
   status: string;
 }
+
+@ObjectType()
+export class CreateUser {
+  @Field()
+  message: string;
+}

@@ -17,6 +17,11 @@ export class User {
   name: string;
 
   @Field(() => String, {
+    nullable: false,
+  })
+  email: string;
+
+  @Field(() => String, {
     nullable: true,
   })
   status: string;
