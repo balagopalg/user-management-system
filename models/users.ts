@@ -18,6 +18,9 @@ export class Users {
   @Column('varchar', { name: 'status', nullable: true, length: 20 })
   accountCategory?: string;
 
+  @Column('varchar', { name: 'email', nullable: true, length: 100 })
+  email?: string;
+
   @Column('tinyint', {
     name: 'is_active',
     nullable: false,
